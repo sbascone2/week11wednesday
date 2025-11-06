@@ -34,15 +34,17 @@ document.querySelector("#skip").addEventListener("click", function() {
 	console.log("In skip");
 	console.log("Current location is", video.currentTime);
 
-	if (video.currentTime + 15 >= video.duration) {
-		video.currentTime = 0;
-	} else {
-		video.currentTime = video.currentTime + 15;
+	let newTime = video.currentTime + 15;
+	if (newTime >= video.duration) {
+		newTime = 0;
 	}
+
+	video.currentTime = parseFloat(newTime.toFixed(1));
 
 	console.log("New location is", video.currentTime);
 	video.play();
 });
+
 
 
 
