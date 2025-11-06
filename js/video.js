@@ -7,7 +7,8 @@ window.addEventListener("load", function() {
 
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
-	video.play()
+	video.play();
+	document.querySelector("#volume").innerText = Math.round(video.volume * 100) + "%";
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -30,16 +31,16 @@ document.querySelector("#slower").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	console.log
-	console.log("Current location is ", video.currentTime);
-	video.currentTime =  video.currentTime + 15
-	if (video.currentTime >= video.duration) {
-	video.currentTime = 0;
+	console.log("Current location is", video.currentTime);
+	if (video.currentTime + 15 >= video.duration) {
+		video.currentTime = 0;
+	} else {
+		video.currentTime += 15;
 	}
-	console.log("New location is ", video.currentTime);
+	console.log("New location is", video.currentTime);
 	video.play();
-
 });
+
 
 document.querySelector("#mute").addEventListener("click", function() {
     console.log("mute");
