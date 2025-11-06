@@ -31,15 +31,19 @@ document.querySelector("#slower").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
+	console.log("In skip");
 	console.log("Current location is", video.currentTime);
+
 	if (video.currentTime + 15 >= video.duration) {
 		video.currentTime = 0;
 	} else {
-		video.currentTime += 15;
+		video.currentTime = video.currentTime + 15;
 	}
+
 	console.log("New location is", video.currentTime);
 	video.play();
 });
+
 
 
 document.querySelector("#mute").addEventListener("click", function() {
